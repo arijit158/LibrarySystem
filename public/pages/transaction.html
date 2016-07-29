@@ -1,0 +1,100 @@
+<!--IBM.
+Developed by Arijit Chatterjee -->
+
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Add Book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ajax based signup form infotuts">
+    <meta name="author" content="InfoTuts">
+
+    <link rel="stylesheet" type="text/css" href='/stylesheets/bootstrap.css' />
+    <link rel="stylesheet" type="text/css" href='/stylesheets/bootstrap-responsive.css' />
+
+      <!-- <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> -->
+	  <style type="text/css">
+	  #footer {
+	  margin-left: 400px;
+	  }
+	  </style>
+</head>
+  <body>	  
+	
+ 	    <div class="container">
+
+<div class="well">    
+      <form id="signup" name="transactionForm" novalidate class="form-horizontal" method="post" ng-submit="addTransaction()">
+		<legend>Transaction Form</legend>
+        
+        		
+		<div class="control-group">
+	        <label class="control-label">User Details</label>
+			<div class="controls">
+			    <div class="input-prepend">
+					<div class="input-prepend">
+					  <select class="form-control" id="sel1" ng-model="transaction.username">
+					    <option>--Select--</option>
+					    <option ng-repeat='user in users'>{{user.name}}</option>
+					  </select>
+				</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="control-group">
+	        <label class="control-label">Book Details</label>
+			<div class="controls">
+			    <div class="input-prepend">
+					  <select class="form-control" id="sel1" ng-model="transaction.bookname">
+					    <option>--Select--</option>
+					    <option ng-repeat='book in books'>{{book.name}}</option>
+					  </select>
+				</div>
+			</div>	
+		</div>
+
+
+		<div class="control-group">
+	        <label class="control-label">Date</label>
+			<div class="controls">
+			    <div class="input-prepend">
+					<input type="text" class="input-xlarge" id="date" name="date" placeholder="dd/MM/yyyy" ng-model="transaction.dueDate">
+				</div>
+			</div>	
+		</div>
+
+		<div class="control-group">
+	        <label class="control-label">Transaction Type</label>
+			<div class="controls">
+			    <div class="input-prepend">
+					  <select class="form-control" id="sel1" ng-model="transaction.Type">
+					    <option>--Select--</option>
+					    <option>borrow</option>
+					    <option>return</option>
+					  </select>
+				</div>
+			</div>	
+		</div>
+		
+		<div align="center">{{message}}</div>
+		<div class="control-group">
+		<label class="control-label" for="input01"></label>
+	      <div class="controls">
+	       <button type="submit" class="btn btn-success" rel="tooltip" title="Create My Account">Add Transaction</button>
+	       
+	      </div>
+	
+	</div>
+	
+	  </form>
+
+   </div>
+</div>
+    <div id="footer">
+    <h4><a href="#">Demo</a></h4>
+    </div>
+  </body>
+</html>
+

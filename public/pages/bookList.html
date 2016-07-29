@@ -1,0 +1,66 @@
+<!--IBM.
+Developed by Arijit Chatterjee -->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Show List of all Books</title>
+<link rel="stylesheet" type="text/css" href='/stylesheets/bootstrap.css' />
+<link rel="stylesheet" type="text/css" href='/stylesheets/bootstrap-responsive.css' />
+</head>
+
+<body>
+	<header>
+            <nav class="navbar navbar-default">
+            <div class="container">
+                
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#adduser"><i class="fa fa-shield"></i> Add User</a></li>
+                    <li><a href="#addBook"><i class="fa fa-comment"></i> Add Book </a></li>
+                    <li><a href="#transaction"><i class="fa fa-sign-in"></i> Transaction</a></li>
+                </ul>
+            </div>
+            </nav>
+        </header>
+ <div class="container">
+		<div class="well">
+        <form id="userlist">
+		<legend>Welcome to home page</legend>
+        <div class="span2 pull-right">
+        <a href="#">Logout</a>
+        </div>
+
+		<div class="control-group">
+	      <table class="table table-strippd table-bordered table-hover table-collapsed">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Status</th>
+               </tr>
+            </thead>
+            <tbody>
+            <tr ng-show='(books==0)'><td colspan='4'><h2 ng-show='searching'>{{message}}</h2><span ng-show='!searching'>No Data Found</span></td></tr>
+                 <tr ng-repeat='book in books' >
+                    <td><a href="" ng-click="removeBook(book)">Delete</a></td>
+                    <td>{{book.name}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.status}}</td>
+                </tr>
+            </tbody>
+        </table> 
+		</div>
+	  </form>
+		</div>
+</div>
+
+<div id="footer">
+<div align="center">
+<h4> <a href="#">Demo</a></h4>
+</div>
+</div>
+</body>
+</html>

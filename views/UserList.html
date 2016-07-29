@@ -1,0 +1,36 @@
+<!--IBM.
+Developed by Arijit Chatterjee -->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Show List of all users</title>
+<link rel="stylesheet" type="text/css" href='/stylesheets/bootstrap.css' />
+<link rel="stylesheet" type="text/css" href='/stylesheets/bootstrap-responsive.css' />
+</head>
+
+<body>
+ <div class="container">
+		<div class="well">
+        <form id="userlist">
+		<legend>Welcome : <%- loggeduser %></legend>
+        <div class="span2 pull-right">
+        <a href="/logout">Logout</a>
+        </div>		
+		<div class="control-group">
+	      <table class="table table-strippd table-bordered table-hover table-collapsed">
+        <%- msg %>
+        </table> 
+		</div>
+	  </form>
+		</div>
+</div>
+
+<div id="footer">
+<div align="center">
+<h4> <a href="#">IBM.</a></h4>
+</div>
+</div>
+</body>
+</html>

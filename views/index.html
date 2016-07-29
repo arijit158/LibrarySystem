@@ -1,0 +1,70 @@
+<!--IBM.
+Developed by Arijit Chatterjee -->
+
+<!DOCTYPE html> 
+<html ng-app="myDemoApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ajax based signup form infotuts">
+    <meta name="author" content="InfoTuts">
+    
+    <link rel="stylesheet" type="text/css" href='/stylesheets/bootstrap.css' />
+    <link rel="stylesheet" type="text/css" href='/stylesheets/bootstrap-responsive.css' />
+
+
+      
+	  <style type="text/css">
+	  #footer {
+	  margin-left: 400px;
+	  }
+	  </style>
+	  <script src="/javascripts/angular.min.js"></script>
+      <script src="/javascripts/angular-route.js"></script>
+      <script src="/javascripts/controller.js"></script>
+</head>
+  <body ng-controller="mainController">	  
+	
+        
+ 	    
+
+<div class="well">    
+      <div ng-view></div>     
+ </div>       
+       
+       
+    <div id="footer">
+    <h4>{{ message }}</h4></div>
+
+   
+    <!-- Javascript placed at the end of the file to make the  page load faster -->
+    <script src="/javascripts/jquery.js"></script>  
+	<script type="text/javascript" src="/javascripts/jquery.validate.js"></script>
+    
+	  <script type="text/javascript">
+	  $(document).ready(function(){
+			$("#index").validate({
+				rules:{
+					uname:"required",
+					passwd:"required",
+					
+					passwd:{
+						required:true,
+						minlength: 6
+					},
+					
+				},
+				
+				errorClass: "help-inline"
+				
+			});
+		});
+	  </script>
+
+
+  
+
+  </body>
+</html>
+

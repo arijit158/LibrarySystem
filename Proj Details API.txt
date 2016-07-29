@@ -1,0 +1,66 @@
+
+1. For signup : <collection name : adminUser>
+url : http://localhost:3000/signup
+Method : POST
+JSON :
+{
+	"username":"sauser",
+  "name":"Arijit Chatterjee",
+  "email" :"arijit152@gmail.com",
+  "contact":"9851677431",
+  "passwd" :"kolkata"
+}
+
+2. For Login : <collection used : adminUser>
+url : http://localhost:3000/login
+Method:POST
+JSON
+{
+	"uname":"sauser",
+  "passwd" :"kolkata"
+}
+
+3. Insert User Details :<collection name : user>
+url : http://localhost:3000/adduser
+Method :POST
+JSON
+{
+"username":"anirban",
+  "fullname":"Anirban Choubey",
+  "email" :"anirban@gmail.com",
+  "contact":"9851677431"
+}
+
+4. Insert Book : <collection name : book>
+url: http://localhost:3000/addBook
+Method:POST
+JSON
+{
+	"fullname":"Java Complete Reference",
+  "author":"Kanitkar",
+  "Status":"Available"
+}
+
+5.List of books 
+url: http://localhost:3000/bookList
+Method:Get
+
+6. Delete Book :
+url : http://localhost:3000/removebook?bookid=<name of book>
+Method : Delete
+
+7. List of Users <collection used : user>
+url : http://localhost:3000/userList
+Method:Get
+
+8. For issue/recieve books <collection name : transaction>
+url : http://localhost:3000/transaction
+Method : POST
+JSON
+{
+"username":"anirban",
+  "bookname":"Oracle",
+  "dueDate":"05/06/2016",
+  "Type":"borrow"
+}
+
