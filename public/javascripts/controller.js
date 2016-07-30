@@ -47,6 +47,8 @@
 
         // create a message to display in our view
         $scope.message = '';
+        $scope.ErrorFlag=false;
+        $scope.errorMessage='';
         $scope.user={};
 
         $scope.signin = function(){
@@ -59,9 +61,10 @@
                 }
             })
             .error(function(data, status){
+                console.log('Eror message ---------- >'+data);
               // success.visible=false;
-              // error.visible=true;
-              // error.message=data.error;
+               $scope.ErrorFlag=true;
+              $scope.errorMessage=data;
           });
         };
     });

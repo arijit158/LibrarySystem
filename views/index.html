@@ -29,42 +29,14 @@ Developed by Arijit Chatterjee -->
         
  	    
 
-<div class="well">    
-      <div ng-view></div>     
+<div class="container well"> 
+	
+		<div ng-view></div>        
  </div>       
        
        
     <div id="footer">
     <h4>{{ message }}</h4></div>
-
-   
-    <!-- Javascript placed at the end of the file to make the  page load faster -->
-    <script src="/javascripts/jquery.js"></script>  
-	<script type="text/javascript" src="/javascripts/jquery.validate.js"></script>
-    
-	  <script type="text/javascript">
-	  $(document).ready(function(){
-			$("#index").validate({
-				rules:{
-					uname:"required",
-					passwd:"required",
-					
-					passwd:{
-						required:true,
-						minlength: 6
-					},
-					
-				},
-				
-				errorClass: "help-inline"
-				
-			});
-		});
-	  </script>
-
-
-  
-
   </body>
 </html>
 
