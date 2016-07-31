@@ -11,9 +11,9 @@
 			<div class="controls">
 			    <div class="input-prepend">
 				<span class="add-on"><i class="icon-user"></i></span>
-					<input type="text" class="input-xlarge" id="uname" name="uname" placeholder="User Name" ng-model="user.uname" required>
-					<span class='help-inline' ng-show='signinForm.uname.$invalid && submitted'>Opps! You forgot to enter username.</span>
+					<input type="text" class="input-xlarge" id="uname" name="uname" placeholder="User Name" ng-model="user.uname" ng-required="true">	
 				</div>
+				<span class='help-block' ng-show='signinForm.uname.$invalid && submitted'>Opps! You forgot to enter username.</span>
 			</div>
 		</div>
 		<div class="control-group">
@@ -21,10 +21,11 @@
 			<div class="controls">
 			    <div class="input-prepend">
 				<span class="add-on"><i class="icon-lock"></i></span>
-					<input type="Password" id="passwd" class="input-xlarge" name="passwd" placeholder="Password" ng-model="user.passwd" required>
-					<span class='help-inline' ng-show='signinForm.passwd.$invalid && submitted'>Opps! You forgot to enter password.</span>
+					<input type="Password" id="passwd" class="input-xlarge" name="passwd" placeholder="Password" ng-model="user.passwd" ng-required="true">
 				</div>
+				<span class="help-block" ng-show='signinForm.passwd.$invalid && submitted'>Opps! You forgot to enter password.</span>
 			</div>
+			
 		</div>
 		
         
