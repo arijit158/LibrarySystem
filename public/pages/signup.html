@@ -91,10 +91,10 @@ Developed by Arijit Chatterjee -->
 			<div class="controls">
 			    <div class="input-prepend">
 				<span class="add-on"><i class="icon-lock"></i></span>
-					<input type="Password" id="conpasswd" class="input-xlarge" name="conpasswd" placeholder="Re-enter Password" ng-required="true" ng-model="user.conpasswd">
+					<input type="Password" id="conpasswd" class="input-xlarge" name="conpasswd" placeholder="Re-enter Password" ng-required="true" ng-model="user.conpasswd" password-verify="user.passwd">
 				</div>
 				<span class='help-inline' ng-show='signupForm.conpasswd.$error.required && submitted'>Opps! You forgot to enter confirm password.</span>
-
+				<span class='help-inline' ng-show='signupForm.conpasswd.$error.passwordVerify'>Opps!.</span>
 			</div>
 		</div>
 		<div align="center">{{message}}</div>
