@@ -79,11 +79,17 @@
 
     myApp.controller('signController', function($scope, $http,$location) {
         $scope.message = '';
+        $scope.ErrorFlag=false;
+        $scope.errorMessage='';
         $scope.user={};
+        $scope.submitted=false;
 
-        $scope.signUpUser = function(){
+        $scope.signUpUser = function(isValid){
             console.log($scope.user);
-            $http.post('http://localhost:3000/signup',$scope.user)
+            $scope.submitted=true;
+            if(isValid)
+            {
+                $http.post('http://localhost:3000/signup',$scope.user)
             .success(function(data, status){console.log(data);
                 if(status===200){
                     //$scope.message="You are successfully registered";
@@ -91,10 +97,13 @@
                 }
             })
             .error(function(data, status){
+               console.log('Eror message ---------- >'+data);
               // success.visible=false;
-              // error.visible=true;
-              // error.message=data.error;
+               $scope.ErrorFlag=true;
+              $scope.errorMessage=data;
           });
+            }
+            
         };
     });
 
