@@ -110,21 +110,30 @@
     myApp.controller('userController', function($scope, $http) {
         $scope.message = '';
         $scope.user={};
+        $scope.submitted=false;
+        $scope.ErrorFlag=false;
+        $scope.errorMessage='';
 
-        $scope.addUser = function(){
+        $scope.addUser = function(isValid){
             console.log($scope.user);
-            $http.post('http://localhost:3000/adduser',$scope.user)
+            $scope.submitted=true;
+            if(isValid)
+            {
+                $http.post('http://localhost:3000/adduser',$scope.user)
             .success(function(data, status){console.log(data);
                 if(status===200){
                     $scope.message='User has been added successfully';
                 }
             })
             .error(function(data, status){
-              // success.visible=false;
-              // error.visible=true;
-              // error.message=data.error;
+              $scope.ErrorFlag=true;
+              $scope.errorMessage=data;
           });
+            }
+            
         };
+        
+        
     });
 	myApp.controller('bookController', function($scope, $http) {
         $scope.message = '';
@@ -259,7 +268,8 @@ myApp.directive("passwordVerify",function(){
       link: function(scope, element, attrs, ctrl) {
         scope.$watch(function() {
             var combined;
-
+            console.log('ari 1 ---'+scope.passwordVerify);
+            console.log('ari 2--- '+ctrl.$viewValue);
             if (scope.passwordVerify || ctrl.$viewValue) {
                combined = scope.passwordVerify + '_' + ctrl.$viewValue; 
             }                    

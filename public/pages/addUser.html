@@ -25,35 +25,41 @@ Developed by Arijit Chatterjee -->
  	    <div class="container">
 
 <div class="well">    
-      <form id="signup" name="addUserForm" novalidate class="form-horizontal" method="post" ng-submit="addUser()">
+      <form id="signup" name="addUserForm" novalidate class="form-horizontal" method="post" ng-submit="addUser(addUserForm.$valid)">
 		<legend>User Adding Form</legend>
         <div class="control-group ">
-	        <label class="control-label">UserName</label>
+	        <label class="control-label">UserName<span class="text-error">*</span></label>
 			<div class="controls">
 			    <div class="input-prepend">
 				<span class="add-on"><i class="icon-user"></i></span>
-					<input type="text" class="input-xlarge" id="username" ng-model="user.username" name="username" placeholder="User Name">
+					<input type="text" class="input-xlarge" id="username" ng-model="user.username" name="username" placeholder="User Name" ng-required="true" ng-minlength="3" ng-maxlength="8">
 				</div>
+				<span class='help-inline' ng-show='addUserForm.username.$error.required && submitted'>Opps! You forgot to enter username.</span>
+				<span class="help-block" ng-show="addUserForm.username.$error.minlength" >Username is too short.</span>
+            	<span ng-show="addUserForm.username.$error.maxlength" class="help-block">Username is too long.</span>
 			</div>
 		</div>
         		
 		<div class="control-group">
-	        <label class="control-label">Full Name</label>
+	        <label class="control-label">Full Name<span class="text-error">*</span></label>
 			<div class="controls">
 			    <div class="input-prepend">
 				<span class="add-on"><i class="icon-user"></i></span>
-					<input type="text" class="input-xlarge" id="fname" name="fname" ng-model="user.name" placeholder="Enter Name">
+					<input type="text" class="input-xlarge" id="fname" name="fname" ng-model="user.name" placeholder="Enter Name" ng-required="true">
 				</div>
+				<span class="help-block" ng-show="addUserForm.fname.$error.required && submitted">Opps! You forgot to enter fullname.</span>
 			</div>
 		</div>
 		
 		<div class="control-group">
-	        <label class="control-label">Email</label>
+	        <label class="control-label">Email<span class="text-error">*</span></label>
 			<div class="controls">
 			    <div class="input-prepend">
 				<span class="add-on"><i class="icon-envelope"></i></span>
-					<input type="text" class="input-xlarge" id="email" name="email" ng-model="user.email" placeholder="Email">
+					<input type="email" class="input-xlarge" id="email" name="email" ng-model="user.email" placeholder="Email" ng-required="true">
 				</div>
+				<span class="help-block" ng-show="addUserForm.email.$error.required && submitted">Opps! You forgot to enter email.</span>
+				<span class='help-inline' ng-show='addUserForm.email.$error.email'>Opps! Please type valid email.</span>
 			</div>	
 		</div>
 
@@ -62,8 +68,9 @@ Developed by Arijit Chatterjee -->
 			<div class="controls">
 			    <div class="input-prepend">
 				<span class="add-on"><i class="icon-envelope"></i></span>
-					<input type="text" class="input-xlarge" id="contact" ng-model="user.contact" name="contact" placeholder="contact">
+					<input type="text" class="input-xlarge" id="contact" ng-model="user.contact" name="contact" placeholder="contact" ng-pattern="/^[0-9]{10}$/">
 				</div>
+				<span class='help-inline' ng-show="addUserForm.contact.$error.pattern">Opps! Please enter valid mobile number.</span>
 			</div>	
 		</div>
 		
